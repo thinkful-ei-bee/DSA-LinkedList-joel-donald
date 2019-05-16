@@ -89,7 +89,31 @@ function findLast(list) {
   return currNode;
 }
 
+function reverseList(list) {
+  let oldHead = list.head;
+  let head;
+  let postion;
+  let reachedEnd = false;
+  if (!currNode) {
+    return null;
+  }
+  else {
+    position = 0;
+  }
+
+  while (currNode.next !== null) {
+    if (currNode.next === null) {
+      head = currNode;
+      let reachedEnd = true;
+      currNode.next = oldHead;
+    }
+    position++;
+  }
+  return list;
+}
+
 function main() {
+  // 2.)
   const SLL = new ll();
 
   const names = ["Apollo", "Boomer", "Helo", "Husker", "Starbuck"];
@@ -105,21 +129,23 @@ function main() {
     SLL.insertLast(name);
   });
 
-  //SLL.insertLast("Tauhida");
+  SLL.insertLast("Tauhida");
+  SLL.remove('squirrel');
+  SLL.insertBefore("Boomer", "Athena");
+  SLL.insertAfter("Helo", "Hotdog");
+  SLL.insertAt(3, "Kat");
 
-  // SLL.remove('squirrel');
-
-  // SLL.insertBefore("Boomer", "Athena");
-
-  // SLL.insertAfter("Helo", "Hotdog");
-
-  //SLL.insertAt(3, "Kat");
-
+  // 3.)
   displayList(SLL);
-  console.log(countList(SLL));
-  console.log(isEmpty(SLL))
-  console.log(findPrevious(SLL, 'Boomer'));
-  console.log(findLast(SLL));
+  // console.log(countList(SLL));
+  // console.log(isEmpty(SLL))
+  // console.log(findPrevious(SLL, 'Boomer'));
+  // console.log(findLast(SLL));
+
+  // 4.) 
+  console.log(reverseList(list));
 }
 
 main();
+
+
