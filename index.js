@@ -16,20 +16,28 @@ function main() {
     SLL.insertLast(name);
   });
 
-  // SLL.insertLast("Tauhida");
+  SLL.insertLast("Tauhida");
 
-  //SLL.remove('squirrel');
-
-  // console.log(SLL.find("Athena"));
-  //console.log(SLL.find('Boomer'))
-
-  // SLL.insertAfter("Helo", "Hotdog");
-
-  // console.log(SLL.find('Helo'))
+  SLL.remove('squirrel');
 
   SLL.insertBefore("Boomer", "Athena");
-  console.log(SLL.find("Athena"));
-  // SLL.find("Apollo");
+
+  SLL.insertAfter("Helo", "Hotdog");
+
+
+  SLL.insertAt(0, 'Donald');
+  console.log(SLL.find('Donald'));
 }
+
+// function displayList(list) {
+//   while (currNode.next !== null) {
+//     if (currNode.next === null) {
+//       return console.log(`Can't find ${searchForItem}`);
+//     } else {
+//       prevNode = currNode;
+//       currNode = currNode.next;
+//     }
+//   }
+// }
 
 main();

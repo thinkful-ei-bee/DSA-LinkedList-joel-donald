@@ -123,6 +123,32 @@ class LinkedList {
 
     currNode.next = newNode;
   }
+
+  insertAt(position, item) {
+    let currNode = this.head;
+    let prevNode = currNode;
+    let count = 0;
+    
+    while (currNode.next !== null) {
+      if (currNode.next === null) {
+        return console.log(`Can't find ${index}`);
+      } 
+      if (position === count) {
+        // console.log(`position ${position} found:`);
+        // console.log(currNode);
+
+        let newNode = new _Node(item, currNode.next)
+
+        currNode.next = newNode;
+        return;
+      }
+      else {
+        prevNode = currNode;
+        currNode = currNode.next;
+      }
+      count++;
+    }
+  }
 }
 
 module.exports = LinkedList;
