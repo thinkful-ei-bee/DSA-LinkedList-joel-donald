@@ -29,6 +29,7 @@ class LinkedList {
 
   find(item) {
     let currNode = this.head;
+    
     if (!this.head) {
       return null;
     }
@@ -74,6 +75,40 @@ class LinkedList {
     previousNode.next = currNode.next;
   }
   
+  insertBefore(searchForItem, item) {
+    let currNode = this.head;
+    
+    while (currNode.next !== searchForItem) {
+      if (currNode.next === null) {
+        return null
+      }
+      else {
+        currNode = currNode.next;
+      }
+    }
+  }
+
+  insertAfter(searchForItem, item) {
+    let currNode = this.find(searchForItem)
+    
+    if (!currNode) {
+      console.log('Searched for item does not exist');
+      return;
+    }
+
+    if (!item) {
+      console.log('Item not passed in!');
+      return;
+    }
+    // set item.next = currNode.next
+    // set currNode.next to item
+    
+    let newNode = new _Node(item, currNode.next);
+
+    currNode.next = newNode;
+
+    
+  }
 }
 
 module.exports = LinkedList;
