@@ -2,27 +2,34 @@ const ll = require("./linkedList.js");
 
 function displayList(list) {
   let currNode = list.head;
-  let prevNode = currNode;
+  console.log(currNode.value);
 
   while (currNode.next !== null) {
     if (currNode.next === null) {
+      
       return;
     } else {
-      console.log(currNode.value);
-      prevNode = currNode;
+      
       currNode = currNode.next;
+      console.log(currNode.value);
     }
   }
 }
 
 function countList(list) {
   let currNode = list.head;
-  let prevNode = currNode;
   let count = 0;
+
+  if (!currNode) {
+    return 0;
+  }
+  else {
+    count++;
+  }
 
   while (currNode.next !== null) {
     if (currNode.next === null) {
-      return 1;
+      return count;
     } else {
       currNode = currNode.next;
       count++;
@@ -64,6 +71,24 @@ function findPrevious(list, item) {
   return prevNode;
 }
 
+function findLast(list) {
+  let currNode = list.head;
+
+  if (!currNode) {
+    return null;
+  }
+
+  while (currNode.next !== null) {
+    if (currNode.next === null) {
+      return currNode;
+    } else {
+      currNode = currNode.next;
+    }
+  }
+
+  return currNode;
+}
+
 function main() {
   const SLL = new ll();
 
@@ -80,20 +105,21 @@ function main() {
     SLL.insertLast(name);
   });
 
-  SLL.insertLast("Tauhida");
+  //SLL.insertLast("Tauhida");
 
-  SLL.remove('squirrel');
+  // SLL.remove('squirrel');
 
-  SLL.insertBefore("Boomer", "Athena");
+  // SLL.insertBefore("Boomer", "Athena");
 
-  SLL.insertAfter("Helo", "Hotdog");
+  // SLL.insertAfter("Helo", "Hotdog");
 
-  SLL.insertAt(3, "Kat");
+  //SLL.insertAt(3, "Kat");
 
   displayList(SLL);
   console.log(countList(SLL));
   console.log(isEmpty(SLL))
-  console.log(findPrevious(SLL, 'Apollo'));
+  console.log(findPrevious(SLL, 'Boomer'));
+  console.log(findLast(SLL));
 }
 
 main();
