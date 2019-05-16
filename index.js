@@ -1,5 +1,20 @@
 const ll = require("./linkedList.js");
 
+function displayList(list) {
+  let currNode = list.head;
+  let prevNode = currNode;
+  
+  while (currNode.next !== null) {
+    if (currNode.next === null) {
+      return;
+    } else {
+      console.log(currNode.value)
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+  }
+}
+
 function main() {
   const SLL = new ll();
 
@@ -16,28 +31,18 @@ function main() {
     SLL.insertLast(name);
   });
 
-  SLL.insertLast("Tauhida");
+  // SLL.insertLast("Tauhida");
 
-  SLL.remove('squirrel');
+  // SLL.remove('squirrel');
 
-  SLL.insertBefore("Boomer", "Athena");
+  // SLL.insertBefore("Boomer", "Athena");
 
-  SLL.insertAfter("Helo", "Hotdog");
+  // SLL.insertAfter("Helo", "Hotdog");
 
-
-  SLL.insertAt(0, 'Donald');
-  console.log(SLL.find('Donald'));
+  SLL.insertAt(3, 'Donald');
+  
+  displayList(SLL);
+  
 }
-
-// function displayList(list) {
-//   while (currNode.next !== null) {
-//     if (currNode.next === null) {
-//       return console.log(`Can't find ${searchForItem}`);
-//     } else {
-//       prevNode = currNode;
-//       currNode = currNode.next;
-//     }
-//   }
-// }
 
 main();

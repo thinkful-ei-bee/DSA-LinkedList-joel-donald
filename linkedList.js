@@ -136,10 +136,17 @@ class LinkedList {
       if (position === count) {
         // console.log(`position ${position} found:`);
         // console.log(currNode);
+        //console.log(prevNode);
+        
+        let newNode = new _Node(item, currNode)
+        // currNode
+        if (position === 0) {
+          this.head = newNode;
+        }
+        else {
+          currNode = newNode;
+        }
 
-        let newNode = new _Node(item, currNode.next)
-
-        currNode.next = newNode;
         return;
       }
       else {
