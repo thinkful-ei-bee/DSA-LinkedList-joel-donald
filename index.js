@@ -15,6 +15,22 @@ function displayList(list) {
   }
 }
 
+function countList(list) {
+  let currNode = list.head;
+  let prevNode = currNode;
+  let count = 0;
+
+  while (currNode.next !== null) {
+    if (currNode.next === null) {
+      return 1;
+    } else {
+      currNode = currNode.next;
+      count++;
+    }
+  }
+  return count;
+}
+
 function main() {
   const SLL = new ll();
 
@@ -31,17 +47,18 @@ function main() {
     SLL.insertLast(name);
   });
 
-  // SLL.insertLast("Tauhida");
+  SLL.insertLast("Tauhida");
 
-  // SLL.remove('squirrel');
+  SLL.remove('squirrel');
 
-  // SLL.insertBefore("Boomer", "Athena");
+  SLL.insertBefore("Boomer", "Athena");
 
-  // SLL.insertAfter("Helo", "Hotdog");
+  SLL.insertAfter("Helo", "Hotdog");
 
-  SLL.insertAt(3, "Donald");
+  SLL.insertAt(3, "Kat");
 
   displayList(SLL);
+  console.log(countList(SLL));
 }
 
 main();
