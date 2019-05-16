@@ -137,13 +137,13 @@ function main() {
 
   // 3.)
   displayList(SLL);
-  // console.log(countList(SLL));
-  // console.log(isEmpty(SLL))
-  // console.log(findPrevious(SLL, 'Boomer'));
-  // console.log(findLast(SLL));
+  console.log(countList(SLL));
+  console.log(isEmpty(SLL))
+  console.log(findPrevious(SLL, 'Boomer'));
+  console.log(findLast(SLL));
 
   // 4.) 
-  console.log(reverseList(list));
+  // console.log(reverseList(list));
 }
 
 main();
