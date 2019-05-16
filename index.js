@@ -31,6 +31,39 @@ function countList(list) {
   return count;
 }
 
+function isEmpty(list) {
+  if (list.head) {
+    return false
+  }
+  return true;
+}
+
+function findPrevious(list, item) {
+  let currNode = list.head;
+  let prevNode = currNode;
+  let position = 0;
+
+  if (!currNode) {
+    return null;
+  }
+
+  while (currNode.value !== item) {
+    if (currNode.next === null) {
+      return 'findPrevious(): Item not found';
+    } else {
+      prevNode = currNode;
+      currNode = currNode.next;
+      position++;
+    }
+  }
+
+  if (position === 0) {
+    return 'At head, no previous node.';
+  }
+
+  return prevNode;
+}
+
 function main() {
   const SLL = new ll();
 
@@ -59,6 +92,8 @@ function main() {
 
   displayList(SLL);
   console.log(countList(SLL));
+  console.log(isEmpty(SLL))
+  console.log(findPrevious(SLL, 'Apollo'));
 }
 
 main();
