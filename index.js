@@ -20,11 +20,11 @@ function main() {
   
   SLL.remove('squirrel');
   
-  SLL.insertBefore('Boomer', 'Athena')
+  // SLL.insertBefore('Boomer', 'Athena')
 
   SLL.insertAfter('Helo', 'Hotdog');
 
-  
+  console.log(SLL.find('Hotdog'))
   
 }
 

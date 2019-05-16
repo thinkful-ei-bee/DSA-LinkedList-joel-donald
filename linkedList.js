@@ -29,21 +29,23 @@ class LinkedList {
 
   find(item) {
     let currNode = this.head;
-    
+    let prevNode = currNode;
+
     if (!this.head) {
       return null;
     }
 
     while (currNode.value !== item) {
       if (currNode.next === null) {
-        return null
+        return { prev: prevNode, curr: null }
       }
       else {
+        prevNode = currNode;
         currNode = currNode.next;
       }
     }
 
-    return currNode;
+    return {prev: prevNode, curr: currNode };
   }
 
   remove(item) {
@@ -89,7 +91,7 @@ class LinkedList {
   }
 
   insertAfter(searchForItem, item) {
-    let currNode = this.find(searchForItem)
+    let currNode = this.find(searchForItem).curr;
     
     if (!currNode) {
       console.log('Searched for item does not exist');
