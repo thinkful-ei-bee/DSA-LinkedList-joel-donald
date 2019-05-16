@@ -17,8 +17,7 @@ class LinkedList {
   insertLast(item) {
     if (this.head === null) {
       this.insertFirst(item);
-    }
-    else {
+    } else {
       let tempNode = this.head;
       while (tempNode.next !== null) {
         tempNode = tempNode.next;
@@ -29,16 +28,15 @@ class LinkedList {
 
   find(item) {
     let currNode = this.head;
-    
+
     if (!this.head) {
       return null;
     }
 
     while (currNode.value !== item) {
       if (currNode.next === null) {
-        return null
-      }
-      else {
+        return null;
+      } else {
         currNode = currNode.next;
       }
     }
@@ -60,13 +58,13 @@ class LinkedList {
 
     let previousNode = this.head;
 
-    while((currNode !== null) && (currNode.value !== item)) {
+    while (currNode !== null && currNode.value !== item) {
       previousNode = currNode;
       currNode = currNode.next;
     }
 
     if (currNode === null) {
-      console.log('Item not found');
+      console.log("Item not found");
       return;
     }
 
@@ -74,66 +72,56 @@ class LinkedList {
     // current node. Therefore "skipping over" the current node.
     previousNode.next = currNode.next;
   }
-  
+
   insertBefore(searchForItem, item) {
     let currNode = this.head;
-    let prevNode;
+    let prevNode = currNode;
+
+    if (!searchForItem) {
+      return console.log("Reference not passed in!");
+    }
+
+    if (!item) {
+      console.log("Item not passed in!");
+      return;
+    }
+
+    searchForItem = this.find(searchForItem);
 
     while (currNode.next !== searchForItem) {
-      console.log(currNode.value);
       if (currNode.next === null) {
-        console.log(`Can't find ${searchForItem}`);
-        return;
-      }
-      else {
+        return console.log(`Can't find ${searchForItem}`);
+      } else {
         prevNode = currNode;
         currNode = currNode.next;
       }
     }
 
-    // if (prevNode === null) {
-    //   console.log('Previous node is null');
-    //   return;
-    // }
-
-    if (!currNode) {
-      console.log('Searched for item does not exist');
-      return;
-    }
-
-    if (!item) {
-      console.log('Item not passed in!');
-      return;
-    }
-
     // set newNode.next to currNode.next
     let newNode = new _Node(item, currNode.next);
-   
+
     // set previous.next to newNode.next
     prevNode.next = newNode;
-
   }
 
   insertAfter(searchForItem, item) {
-    let currNode = this.find(searchForItem)
-    
+    let currNode = this.find(searchForItem);
+
     if (!currNode) {
-      console.log('Searched for item does not exist');
+      console.log("Searched for item does not exist");
       return;
     }
 
     if (!item) {
-      console.log('Item not passed in!');
+      console.log("Item not passed in!");
       return;
     }
     // set item.next = currNode.next
     // set currNode.next to item
-    
+
     let newNode = new _Node(item, currNode.next);
 
     currNode.next = newNode;
-
-    
   }
 }
 
