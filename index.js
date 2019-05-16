@@ -24,7 +24,7 @@ function main() {
 
   SLL.insertAfter('Helo', 'Hotdog');
 
-  console.log(SLL.find('Hotdog'))
+  console.log(SLL.find('Helo'))
   
 }
 

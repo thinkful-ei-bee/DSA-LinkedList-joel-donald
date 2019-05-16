@@ -29,23 +29,21 @@ class LinkedList {
 
   find(item) {
     let currNode = this.head;
-    let prevNode = currNode;
-
+    
     if (!this.head) {
       return null;
     }
 
     while (currNode.value !== item) {
       if (currNode.next === null) {
-        return { prev: prevNode, curr: null }
+        return null
       }
       else {
-        prevNode = currNode;
         currNode = currNode.next;
       }
     }
 
-    return {prev: prevNode, curr: currNode };
+    return currNode;
   }
 
   remove(item) {
@@ -79,19 +77,36 @@ class LinkedList {
   
   insertBefore(searchForItem, item) {
     let currNode = this.head;
-    
+    let prevNode;
+
     while (currNode.next !== searchForItem) {
       if (currNode.next === null) {
         return null
       }
       else {
+        prevNode = currNode;
         currNode = currNode.next;
       }
+    }
+
+    if (prevNode === null) {
+      console.log('Previous node is null');
+      return;
+    }
+
+    if (!currNode) {
+      console.log('Searched for item does not exist');
+      return;
+    }
+
+    if (!item) {
+      console.log('Item not passed in!');
+      return;
     }
   }
 
   insertAfter(searchForItem, item) {
-    let currNode = this.find(searchForItem).curr;
+    let currNode = this.find(searchForItem)
     
     if (!currNode) {
       console.log('Searched for item does not exist');
