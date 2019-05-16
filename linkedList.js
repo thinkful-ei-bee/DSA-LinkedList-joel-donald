@@ -80,8 +80,10 @@ class LinkedList {
     let prevNode;
 
     while (currNode.next !== searchForItem) {
+      console.log(currNode.value);
       if (currNode.next === null) {
-        return null
+        console.log(`Can't find ${searchForItem}`);
+        return;
       }
       else {
         prevNode = currNode;
@@ -89,10 +91,10 @@ class LinkedList {
       }
     }
 
-    if (prevNode === null) {
-      console.log('Previous node is null');
-      return;
-    }
+    // if (prevNode === null) {
+    //   console.log('Previous node is null');
+    //   return;
+    // }
 
     if (!currNode) {
       console.log('Searched for item does not exist');
@@ -103,6 +105,13 @@ class LinkedList {
       console.log('Item not passed in!');
       return;
     }
+
+    // set newNode.next to currNode.next
+    let newNode = new _Node(item, currNode.next);
+   
+    // set previous.next to newNode.next
+    prevNode.next = newNode;
+
   }
 
   insertAfter(searchForItem, item) {

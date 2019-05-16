@@ -18,13 +18,16 @@ function main() {
   
   SLL.insertLast('Tauhida');
   
-  SLL.remove('squirrel');
+  //SLL.remove('squirrel');
   
-  // SLL.insertBefore('Boomer', 'Athena')
+  SLL.insertBefore('Boomer', 'Athena')
 
-  SLL.insertAfter('Helo', 'Hotdog');
+  console.log(SLL.find('Athena'))
+  //console.log(SLL.find('Boomer'))
 
-  console.log(SLL.find('Helo'))
+  // SLL.insertAfter('Helo', 'Hotdog');
+
+  // console.log(SLL.find('Helo'))
   
 }
 
