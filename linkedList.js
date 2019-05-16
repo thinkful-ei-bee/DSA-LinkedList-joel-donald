@@ -128,28 +128,20 @@ class LinkedList {
     let currNode = this.head;
     let prevNode = currNode;
     let count = 0;
-    
+
     while (currNode.next !== null) {
       if (currNode.next === null) {
         return console.log(`Can't find ${index}`);
-      } 
+      }
       if (position === count) {
-        // console.log(`position ${position} found:`);
-        // console.log(currNode);
-        //console.log(prevNode);
-        
-        let newNode = new _Node(item, currNode)
-        // currNode
+        let newNode = new _Node(item, currNode);
         if (position === 0) {
           this.head = newNode;
+        } else {
+          prevNode.next = newNode;
         }
-        else {
-          currNode = newNode;
-        }
-
         return;
-      }
-      else {
+      } else {
         prevNode = currNode;
         currNode = currNode.next;
       }

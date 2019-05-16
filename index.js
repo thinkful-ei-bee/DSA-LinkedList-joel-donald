@@ -3,12 +3,12 @@ const ll = require("./linkedList.js");
 function displayList(list) {
   let currNode = list.head;
   let prevNode = currNode;
-  
+
   while (currNode.next !== null) {
     if (currNode.next === null) {
       return;
     } else {
-      console.log(currNode.value)
+      console.log(currNode.value);
       prevNode = currNode;
       currNode = currNode.next;
     }
@@ -39,10 +39,9 @@ function main() {
 
   // SLL.insertAfter("Helo", "Hotdog");
 
-  SLL.insertAt(3, 'Donald');
-  
+  SLL.insertAt(3, "Donald");
+
   displayList(SLL);
-  
 }
 
 main();
